@@ -3,7 +3,9 @@ package com.devsuperior.dslearn.entities;
 import com.devsuperior.dslearn.entities.enums.ResourceType;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_resource")
@@ -20,7 +22,8 @@ public class Resource {
 
     @ManyToOne
     private Offer offer;
-
+    @OneToMany(mappedBy = "resource")
+    private Set<Resource> sections = new HashSet<>();
     public Resource() {
     }
 
@@ -89,6 +92,22 @@ public class Resource {
 
     public void setExternalLink(String externalLink) {
         this.externalLink = externalLink;
+    }
+
+    public Offer getOffer() {
+        return offer;
+    }
+
+    public void setOffer(Offer offer) {
+        this.offer = offer;
+    }
+
+    public Set<Resource> getSections() {
+        return sections;
+    }
+
+    public void addSections(Resource section) {
+        this.sections.add(section);
     }
 
     @Override
