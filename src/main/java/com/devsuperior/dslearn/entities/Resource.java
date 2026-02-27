@@ -23,7 +23,7 @@ public class Resource {
     @ManyToOne
     private Offer offer;
     @OneToMany(mappedBy = "resource")
-    private Set<Resource> sections = new HashSet<>();
+    private Set<Section> sections = new HashSet<>();
     public Resource() {
     }
 
@@ -102,11 +102,11 @@ public class Resource {
         this.offer = offer;
     }
 
-    public Set<Resource> getSections() {
+    public Set<Section> getSections() {
         return sections;
     }
 
-    public void addSections(Resource section) {
+    public void addSections(Section section) {
         this.sections.add(section);
     }
 
