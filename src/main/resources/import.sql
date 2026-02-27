@@ -16,3 +16,5 @@ INSERT INTO tb_course (name,img_uri, img_gray_uri) VALUES ('Curso de HTML','http
 INSERT INTO tb_offer (edition,start_moment,end_moment,course_id) VALUES ('First',TIMESTAMP WITH TIME ZONE'2025-02-12T12:30:00Z',TIMESTAMP WITH TIME ZONE'2026-02-12T12:30:00Z',1);
 
 INSERT INTO tb_notification (text,moment,read,route,user_id) VALUES ('Você ingressou no curso de HTML!',TIMESTAMP WITH TIME ZONE'2025-02-12T12:30:00Z',false,'https://localhost:8080/user/1',1);
+
+INSERT INTO tb_resource (title,description,position,img_uri,type,external_link,offer_id) VALUES ('Boot camp HTLM','Treino para html', 1,'https://www.devmedia.com.br/arquivos/cursos/HTML_fundamentos/thumb.webp',2,'https://externallink:3450',1);

@@ -3,7 +3,9 @@ package com.devsuperior.dslearn.entities;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_offer")
@@ -16,6 +18,8 @@ public class Offer {
     private Instant endMoment;
     @ManyToOne
     private Course course;
+    @OneToMany(mappedBy = "offer")
+    private Set<Resource> resources = new HashSet<>();
     public Offer() {
     }
 
@@ -65,6 +69,14 @@ public class Offer {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public Set<Resource> getResources() {
+        return resources;
+    }
+
+    public void addResources(Resource resource) {
+        this.resources.add(resource);
     }
 
     @Override
