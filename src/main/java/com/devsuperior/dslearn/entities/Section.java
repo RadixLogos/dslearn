@@ -2,7 +2,9 @@ package com.devsuperior.dslearn.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_section")
@@ -18,6 +20,8 @@ public class Section {
     private Resource resource;
     @ManyToOne
     private Section prerequisite;
+    @OneToMany(mappedBy = "section")
+    private Set<Lesson> lessons = new HashSet<>();
 
     public Section() {
     }
@@ -86,6 +90,10 @@ public class Section {
 
     public void setPrerequisite(Section prerequisite) {
         this.prerequisite = prerequisite;
+    }
+
+    public Set<Lesson> getLessons() {
+        return lessons;
     }
 
     @Override
